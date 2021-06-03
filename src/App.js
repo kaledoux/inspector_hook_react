@@ -1,7 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import { useCookies } from 'react-cookie';
 
 function App() {
+	// cookie for bin id
+	const [ cookies, setCookie ] = useCookies([ 'binID' ]);
+	function handleCookie(binIDFromAPI) {
+		setCookie('binID', binIDFromAPI, { path: '/', maxAge: 172800 });
+	}
+
 	const Title = () => {
 		return (
 			<div>
@@ -12,15 +18,21 @@ function App() {
 	};
 
 	const NewBin = () => {
+		const createNewBin = () => {
+			// axios to node backend api
+			// from Promise, return value or log error and return undefined
+		};
 		const handleClick = () => {
 			// query api to create new bin in db
 			// receive uuid for new bin
 			// set uuid as value for cookie
+			let binIDFromAPI = 'This was set with api call';
+			handleCookie(binIDFromAPI);
 		};
 		return (
 			<div>
 				<h2>Create a new inspector bin:</h2>
-				<button>Create Bin</button>
+				<button onClick={handleClick}>Create Bin</button>
 			</div>
 		);
 	};
@@ -46,14 +58,15 @@ function App() {
 			return <h3>You don't have a bin to inspect yet!</h3>;
 		}
 	};
+
 	const baseURL = 'http://inspector-hook.com';
-	const cookie = { binID: 'some UUID value' };
+	// const cookie = { binID: 'some UUID value' };
 
 	return (
 		<div className="App">
 			<Title />
 			<NewBin />
-			<CurrentBin cookie={cookie} />
+			<CurrentBin cookie={cookies} />
 		</div>
 	);
 }
