@@ -1,11 +1,13 @@
 import './App.css';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
+import React, { useState } from 'react';
 
 function App() {
 	// should be extracted to .env
 	const baseURL = 'http://inspector-hook.com/';
 
+	const [ requests, setrequests ] = useState([]);
 	// add effect hook for fetching requests if cookie contains uuid
 
 	// cookie for bin id
@@ -77,22 +79,45 @@ function App() {
 				});
 		}
 
+		async function setCurrentRequests(binID) {
+			let response = await getRequestsForBin(binID);
+			console.log('setting :', response.requests);
+
+			setrequests(response.requests);
+			console.log('state changed :', requests);
+		}
+
 		if (cookie.binID) {
 			return (
 				<div>
 					<h3>Your current bin is at: {baseURL + cookie.binID}</h3>
 					<button
 						onClick={() => {
-							getRequestsForBin(cookie.binID);
+							setCurrentRequests(cookie.binID);
 						}}
 					>
 						View all requests
 					</button>
+					{requests.map((request) => {
+						<Request data={request} />;
+					})}
 				</div>
 			);
 		} else {
 			return <h3>You don't have a bin to inspect yet!</h3>;
 		}
+	};
+
+	const Request = (data) => {
+		console.log('in Request: ', data);
+
+		return (
+			<div>
+				<pre>
+					<code>{data.request}</code>
+				</pre>
+			</div>
+		);
 	};
 
 	return (
