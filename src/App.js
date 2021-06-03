@@ -1,11 +1,17 @@
 import './App.css';
 import { useCookies } from 'react-cookie';
+import axios from 'axios';
 
 function App() {
+	// should be extracted to .env
+	const baseURL = 'http://inspector-hook.com/';
+
+	// add effect hook for fetching requests if cookie contains uuid
+
 	// cookie for bin id
 	const [ cookies, setCookie ] = useCookies([ 'binID' ]);
 	function handleCookie(binIDFromAPI) {
-		setCookie('binID', binIDFromAPI, { path: '/', maxAge: 172800 });
+		setCookie('binID', binIDFromAPI, { path: '/', maxAge: 172800, sameSite: 'strict' });
 	}
 
 	const Title = () => {
@@ -19,16 +25,26 @@ function App() {
 
 	const NewBin = () => {
 		const createNewBin = () => {
-			// axios to node backend api
-			// from Promise, return value or log error and return undefined
+			return axios.post('http://localhost:3003/newBin').then((res, rej) => {
+				console.log(res.data.binID);
+				console.log(rej);
+				if (res) {
+					return res.data.binID;
+				} else {
+					console.log(rej);
+					return undefined;
+				}
+			});
 		};
-		const handleClick = () => {
+		async function handleClick() {
 			// query api to create new bin in db
 			// receive uuid for new bin
 			// set uuid as value for cookie
-			let binIDFromAPI = 'This was set with api call';
+			let binIDFromAPI = await createNewBin();
+			console.log('binIDFromAPI ', binIDFromAPI);
+			// let binIDFromAPI = 'This was set with api call';
 			handleCookie(binIDFromAPI);
-		};
+		}
 		return (
 			<div>
 				<h2>Create a new inspector bin:</h2>
@@ -58,9 +74,6 @@ function App() {
 			return <h3>You don't have a bin to inspect yet!</h3>;
 		}
 	};
-
-	const baseURL = 'http://inspector-hook.com';
-	// const cookie = { binID: 'some UUID value' };
 
 	return (
 		<div className="App">
