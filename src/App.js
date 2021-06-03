@@ -98,9 +98,6 @@ function App() {
 					>
 						View all requests
 					</button>
-					{requests.map((request) => {
-						<Request data={request} />;
-					})}
 				</div>
 			);
 		} else {
@@ -108,13 +105,25 @@ function App() {
 		}
 	};
 
-	const Request = (data) => {
+	const RequestList = ({ requestState }) => {
+		console.log('request list: ', requestState);
+		return (
+			<div>
+				{requestState.map((request) => {
+					return <Request data={request} />;
+				})}
+			</div>
+		);
+	};
+
+	const Request = ({ data }) => {
 		console.log('in Request: ', data);
 
 		return (
 			<div>
+				<h4 />
 				<pre>
-					<code>{data.request}</code>
+					<code>{data.row}</code>
 				</pre>
 			</div>
 		);
@@ -125,6 +134,7 @@ function App() {
 			<Title />
 			<NewBin />
 			<CurrentBin cookie={cookies} />
+			<RequestList requestState={requests} />
 		</div>
 	);
 }
