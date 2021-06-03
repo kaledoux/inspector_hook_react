@@ -25,24 +25,25 @@ function App() {
 
 	const NewBin = () => {
 		const createNewBin = () => {
-			return axios.post('http://localhost:3003/newBin').then((res, rej) => {
-				console.log(res.data.binID);
-				console.log(rej);
-				if (res) {
+			return axios
+				.post('http://localhost:3003/newBin')
+				.then((res) => {
+					console.log(res.data.binID);
 					return res.data.binID;
-				} else {
-					console.log(rej);
+				})
+				.catch((err) => {
+					console.log(err);
 					return undefined;
-				}
-			});
+				});
 		};
+
 		async function handleClick() {
-			// query api to create new bin in db
-			// receive uuid for new bin
-			// set uuid as value for cookie
+			// api call to create new bin, set to local
 			let binIDFromAPI = await createNewBin();
+
 			console.log('binIDFromAPI ', binIDFromAPI);
-			// let binIDFromAPI = 'This was set with api call';
+
+			// set cookie value for binID to uuid of bin on api
 			handleCookie(binIDFromAPI);
 		}
 		return (
@@ -63,11 +64,30 @@ function App() {
 		console.log('currentBin cookie: ', cookie);
 		console.log('currentBin binID: ', cookie.binID);
 
+		async function getRequestsForBin(binID) {
+			return axios
+				.get('http://localhost:3003/' + binID)
+				.then((res) => {
+					console.log('get requests: ', res.data);
+					return res.data;
+				})
+				.catch((err) => {
+					console.log(err);
+					return undefined;
+				});
+		}
+
 		if (cookie.binID) {
 			return (
 				<div>
 					<h3>Your current bin is at: {baseURL + cookie.binID}</h3>
-					<button>View all requests</button>
+					<button
+						onClick={() => {
+							getRequestsForBin(cookie.binID);
+						}}
+					>
+						View all requests
+					</button>
 				</div>
 			);
 		} else {
