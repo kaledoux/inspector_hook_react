@@ -1,19 +1,15 @@
 import React from 'react';
 import axios from 'axios';
+import { BASEURL } from '../urls';
 
-require('dotenv').config();
 // track current bin
 const CurrentBin = ({ cookie, currentRequests, setRequests }) => {
-	// should be extracted to .env
-	// const baseURL = 'http://inspector-hook.com/';
-	const baseURL = process.env.BASEURL;
-
 	console.log('currentBin cookie: ', cookie);
 	console.log('currentBin binID: ', cookie.binID);
 
 	async function getRequestsForBin(binID) {
 		return axios
-			.get('http://localhost:3003/' + binID)
+			.get('http://localhost:3003/api/' + binID)
 			.then((res) => {
 				console.log('get requests: ', res.data);
 				return res.data;
@@ -34,7 +30,7 @@ const CurrentBin = ({ cookie, currentRequests, setRequests }) => {
 	if (cookie.binID) {
 		return (
 			<div>
-				<h3>Your current bin is at: {baseURL + cookie.binID}</h3>
+				<h3>Your current bin is at: {BASEURL + cookie.binID}</h3>
 				<button
 					onClick={() => {
 						setCurrentRequests(cookie.binID);
