@@ -1,6 +1,5 @@
 import './App.css';
 import { useCookies } from 'react-cookie';
-import axios from 'axios';
 import React, { useState } from 'react';
 
 // components
