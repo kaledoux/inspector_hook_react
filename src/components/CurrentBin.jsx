@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 
+require('dotenv').config();
 // track current bin
 const CurrentBin = ({ cookie, currentRequests, setRequests }) => {
 	// should be extracted to .env
-	const baseURL = 'http://inspector-hook.com/';
+	// const baseURL = 'http://inspector-hook.com/';
+	const baseURL = process.env.BASEURL;
 
 	console.log('currentBin cookie: ', cookie);
 	console.log('currentBin binID: ', cookie.binID);

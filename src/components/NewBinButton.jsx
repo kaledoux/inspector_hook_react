@@ -1,20 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 
+require('dotenv').config();
 // button to create a new bin uuid on api
 const NewBinButton = ({ handleCookie, setRequests }) => {
 	// send post request to api to create a new uuid in db
 	const createNewBin = () => {
-		return axios
-			.post('http://localhost:3003/newBin')
-			.then((res) => {
-				console.log(res.data.binID);
-				return res.data.binID;
-			})
-			.catch((err) => {
-				console.log(err);
-				return undefined;
-			});
+		return (
+			axios
+				// .post('http://localhost:3003/newBin')
+				.post(process.env.APICREATEPOSTURL)
+				.then((res) => {
+					console.log(res.data.binID);
+					return res.data.binID;
+				})
+				.catch((err) => {
+					console.log(err);
+					return undefined;
+				})
+		);
 	};
 
 	// create a new bin and wait for response, then set cookie to new uuid and reset requests state
