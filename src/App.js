@@ -47,6 +47,8 @@ function App() {
 
 			// set cookie value for binID to uuid of bin on api
 			handleCookie(binIDFromAPI);
+			// clear state so old bin requests are no longer shown
+			setrequests([]);
 		}
 		return (
 			<div>
@@ -74,8 +76,7 @@ function App() {
 					return res.data;
 				})
 				.catch((err) => {
-					console.log(err);
-					return undefined;
+					throw err;
 				});
 		}
 
@@ -110,21 +111,22 @@ function App() {
 		return (
 			<div>
 				{requestState.map((request) => {
-					return <Request data={request} />;
+					return <Request key={request.created_on} data={request} />;
 				})}
 			</div>
 		);
 	};
 
+	// formatting of data from each row is undeisrable; try to fix or just remove date from equation
+	// separator for each block is needed as well, in addition, if only JSON, remove from string
+	// to display in code block
 	const Request = ({ data }) => {
 		console.log('in Request: ', data);
 
 		return (
 			<div>
-				<h4 />
-				<pre>
-					<code>{data.row}</code>
-				</pre>
+				<h4>{data.created_on}</h4>
+				{JSON.stringify(data.request, null, 4)}
 			</div>
 		);
 	};
