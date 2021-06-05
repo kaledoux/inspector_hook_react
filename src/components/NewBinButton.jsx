@@ -6,7 +6,7 @@ const NewBinButton = ({ handleCookie, setRequests }) => {
 	// send post request to api to create a new uuid in db
 	const createNewBin = () => {
 		return axios
-			.post('http://inspector-hook.com:3003/api/newBin')
+			.post('http://inspector-hook.com/api/newBin')
 			.then((res) => {
 				console.log(res.data.binID);
 				return res.data.binID;
