@@ -9,7 +9,7 @@ const CurrentBin = ({ cookie, currentRequests, setRequests }) => {
 
 	async function getRequestsForBin(binID) {
 		return axios
-			.get('http://localhost:3003/api/' + binID)
+			.get('http://inspector-hook.com:3003/api/' + binID)
 			.then((res) => {
 				console.log('get requests: ', res.data);
 				return res.data;
