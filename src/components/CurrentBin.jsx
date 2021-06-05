@@ -4,8 +4,8 @@ import { BASEURL } from '../urls';
 
 // track current bin
 const CurrentBin = ({ cookie, currentRequests, setRequests }) => {
-	console.log('currentBin cookie: ', cookie);
-	console.log('currentBin binID: ', cookie.binID);
+	// console.log('currentBin cookie: ', cookie);
+	// console.log('currentBin binID: ', cookie.binID);
 
 	async function getRequestsForBin(binID) {
 		return axios
@@ -21,10 +21,9 @@ const CurrentBin = ({ cookie, currentRequests, setRequests }) => {
 
 	async function setCurrentRequests(binID) {
 		let response = await getRequestsForBin(binID);
-		console.log('setting :', response.requests);
-
+		// console.log('setting :', response.requests);
 		setRequests(response.requests);
-		console.log('state changed :', currentRequests);
+		// console.log('state changed :', currentRequests);
 	}
 
 	if (cookie.binID) {

@@ -1,10 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { APICREATEPOSTURL } from '../urls';
 
 // button to create a new bin uuid on api
 const NewBinButton = ({ handleCookie, setRequests }) => {
-	console.log('api create url: ', APICREATEPOSTURL);
 	// send post request to api to create a new uuid in db
 	const createNewBin = () => {
 		return axios
