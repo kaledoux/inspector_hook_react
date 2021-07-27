@@ -1,12 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Hyperspace by HTML5 UP</title>
+		<title>Pioneer - Feature Flags</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,10 +14,15 @@
 				<div class="inner">
 					<nav>
 						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">Who we are</a></li>
-							<li><a href="#two">What we do</a></li>
-							<li><a href="#three">Get in touch</a></li>
+							<li><a href="#intro">Pioneer</a></li>
+							<li><a href="#one">1. Introduction and Use Case</a></li>
+							<li><a href="#two">2. Potential Solutions</a></li>
+							<li><a href="#three">3. What is Pioneer?</a></li>
+							<li><a href="#four">4. Archtectural Decisions</a></li>
+							<li><a href="#five">5. Future Work</a></li>
+							<li><a href="#six">6. References</a></li>
+							<li><a href="#seven">7. Presentation</a></li>
+							<li><a href="#eight">8. Meet the Team</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -34,11 +34,11 @@
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
-							<h1>Hyperspace</h1>
-							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
+							<h1>Pioneer</h1>
+							<p>Introducing the fastest, easiest way to move to microservices with simple, scalable feature flags.</p>
+							<p>Available as an open-source project under the <a href="https://opensource.org/licenses/MIT">Open Source Initiative.</a></p>
 							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
+								<li><a href="#one" class="button scrolly">Read the writeup</a></li>
 							</ul>
 						</div>
 					</section>
@@ -46,153 +46,291 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Sed ipsum dolor</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
+									<h2>1. Introduction & Use Case</h2>
+									<p>Pioneer is a feature management service built to handle an organization’s migration from a monolithic architecture to a microservices architecture.</p>
+									<p>As an application grows and demands on the system increase, an organization may find that they need to begin scaling their application. A monolithic architecture can cause code to be tightly coupled and difficult to scale. Conversely, a microservices architecture is more loosely coupled and can be independently scaled & deployed. A microservices architecture is also able to be organized around business capabilities that can be ‘owned’ by a small team.</p>
+									<p>When transitioning from a monolith to a microservices-oriented architecture, an organization may only want to expose the new service to a small number of users while the organization collects analytics and user feedback, and analyzes how the service performs under various loads. When using feature flags to handle this transition, any change can be quickly rolled back in real-time simply by toggling the flag off; no re-deployment is necessary.</p>
+								</div>
+								<div class="inner">
+									<h3>1.1 Hypothetical</h3>
+									<p>Harvest Delivery is a regional shopping service that allows users to order groceries online. A locally-contracted shopper purchases the requested groceries and delivers them to the doorstep of the user. Harvest Delivery’s web application receives a variable amount of user traffic, with the highest amount of traffic occurring in the days leading up to major holidays.</p>
+									<p>Harvest Delivery’s web application is currently a monolith. As the organization grows and adds more features for users, the monolithic architecture begins to cause a strain on the engineering team. The CTO would like for the application code to be more loosely coupled in order to maximize developer efficiency and scale pieces of the application independently. Additionally, she would like to see the system architecture organized around business concerns such as the shopping catalog, payment processing, and shopper communication.</p>
+									<p>Harvest Delivery’s CTO directs the engineering team to extract these three features out into separate microservices. However, it’s important that this change does not impact user experience. The holidays are coming up, and Harvest Delivery doesn’t want to sacrifice any revenue.</p>
+									<p>Harvest Delivery plans to collect analytics and perform load testing on the new services to ensure that they can handle the load of holiday shopping sprees.  They also plan to solicit user feedback from a percentage of users before rolling these new services out to all users.</p>
+									<p>Harvest Delivery’s CTO plans to implement this transition via parallel change - a migration phase that takes place until all users have been routed to the new service. If there are problems found with the new service during this transition time, the rollback strategy is simply to re-route users back to the pre-existing monolith until the problem has been fixed.</p>
 								</div>
 							</div>
 						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Feugiat consequat</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
+									<!-- <ul class="actions">
 										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
+									</ul> -->
 					</section>
-
+			
 				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>What we do</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
-							<div class="features">
-								<section>
-									<span class="icon solid major fa-code"></span>
-									<h3>Lorem ipsum amet</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-lock"></span>
-									<h3>Aliquam sed nullam</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-cog"></span>
-									<h3>Sed erat ullam corper</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-desktop"></span>
-									<h3>Veroeros quis lorem</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-link"></span>
-									<h3>Urna quis bibendum</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon major fa-gem"></span>
-									<h3>Aliquam urna dapibus</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-							</div>
-							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn more</a></li>
-							</ul>
-						</div>
-					</section>
-
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Get in touch</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
-							<div class="split style1">
-								<section>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="name">Name</label>
-												<input type="text" name="name" id="name" />
-											</div>
-											<div class="field half">
-												<label for="email">Email</label>
-												<input type="text" name="email" id="email" />
-											</div>
-											<div class="field">
-												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
+					<section id="two" class="wrapper style1 spotlights">
+						<section>
+							<div class="content">
+								<div class="inner">
+									<h2>2. Potential Solutions</h2>
+									<h3>2.1 Canary Deployment, or Side-by-Side Deployment</h3>
+									<p>A canary deployment involves creating a clone of the application’s production environment.  A load balancer or router is used to initially send all traffic to one version while new functionality is built in the other version. When the new service is deployed, some percentage of users are directed to the new version. If that percentage of users experiences no problems, the service can be gradually rolled out to more users until the new version is used by everyone. If there are problems, you can always roll it back, and most of your users will have never even seen the problem.</p>
+									<p>While this is a potential solution for Harvest Delivery, there are significant drawbacks to canary deployment. Side-by-side deployments result in higher costs because of the need for additional infrastructure, such as the expense of maintaining multiple server instances.  Canary deployments also result in increased complexity.  The engineering team must deal with multiple production environments, monitor an additional system, and migrate users.  Lastly, dealing with cloning databases can be complex when using canary deployments. Cloning the database (or not) is a decision with tradeoffs to be made, and breaking schema changes may impact both deployment environments. Again, this adds an additional layer of complexity.</p>
+									<p>Because canary deployments operate on the deployment level, any changes that need to be made to the latest release will require that the latest deployment be rolled back entirely.</p>
+									<p>Because any release having a negative impact on user-experience can be immediately rolled back, feature flags allow engineering teams to substantially mitigate the risk of releasing immature functionality. This low-risk experimentation allows small engineering teams like Harvest Delivery to maximize developer efficiency.</p>
+									<p>This low-risk experimentation allows small engineering teams to release with confidence, knowing that they have the option of quickly toggling off a feature.</p>
+								</div>
+								<div class="inner">
+									<h3>2.2 Feature Flags</h3>
+									<p>A better solution would be for Harvest Delivery to implement a gradual rollout without changing their infrastructure. Harvest Delivery is a relatively small organization without a large amount of engineering resources.</p>
+									<p>Ideally, Harvest Delivery would like the ability to toggle services on and off in real-time while in the transition phase, without needing to redeploy. Additionally, they want to be able to choose how many users are being sent to our new microservice at a time, so that they can control the load on the new services until they are sure it’s stable enough to handle a full load.</p>
+									<p>Feature flags are an ideal solution for Harvest Delivery’s use case. They allow for on-demand toggling of features and adjustment of a percentage rollout.  While a canary deployment lives in the infrastructure networking layer, feature flags live in the application. Source Feature flags allow for one feature to be dialed up or rolled back independently of any other, without a hotfix or redeployment.</p>
+								</div>
+								<div class="inner">
+									<h3>2.3 Feature Flags as a Solution</h3>
+									<p>Feature flags seem like a great fit for this use case, but how can Harvest Delivery integrate them into their existing system?</p>
+									<div class="inner">
+										<h4>2.3.1 Rolling Your Own Feature Flag Service</h4>
+										<p>Harvest Delivery could choose to roll their own feature flag service.  One naive approach would be to maintain a simple feature flag rule set within their application code as a configuration file. However, this would require re-deployment any time the team wished to toggle a feature on or off, or update the rollout percentage. Ultimately, this would negate the benefit of using feature flags.</p>
+										<p>A more robust solution would be for the Harvest Delivery engineering team to build a true feature flagging system that would allow flags to be updated and dynamically evaluated without re-deploying any code. However, this would require engineering hours to build, test, and maintain the service. Harvest Delivery is a small team without excess engineering resources. A third-party solution that will work out-of-the-box is a better fit for the team.</p>
+									</div>
+									<div class="inner">
+										<h4>2.3.2 Existing Third-Party Solutions</h4>
+										<ul class="alt">
+											<li>
+												<b>Launch Darkly</b>
+												<p>LaunchDarkly is an enterprise-level feature management service. It’s a feature-rich, hosted service. Users have a huge variety of features available to them, but this proprietary software comes with a cost. LaunchDarkly also includes a plethora of features that are beyond Harvest Delivery’s needs</p>
+											</li>
+											<li>
+												<b>Cloud Bees</b>
+												<p>CloudBees is another proprietary software. It provides end-to-end DevOps features, which  may be a great fit for larger teams with a focus on DevOps. CloudBees is a hosted service.</p>
+											</li>
+											<li>
+												<b>FeatureHub</b>
+												<p>FeatureHub is an open-source, self-hosted service. FeatureHub focuses on feature flags for both client- and server-side features. It offers a bevy of different flag types, along with complex logic allowing for organizations, users, and a variety of features sets.</p>
+											</li>
+											<li>
+												<h4>2.3.3 Thoughts on Existing Third-Party Solutions</h4>
+												<p>Enterprise solutions have a large and almost dizzying array of DevOps services and they all come with a cost that may strain a small, regional organization like Harvest Delivery. Existing open-source solutions are complicated by a focus on client-side features evaluated in the browser, and a litany of complex features.  A small business like Harvest Delivery doesn’t need the extra expenses of an enterprise service or the unnecessary complexity that other offerings entail.</p>
+											</li>
 										</ul>
-									</form>
-								</section>
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>12345 Somewhere Road #654<br />
-											Nashville, TN 00000-0000<br />
-											USA</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="#">user@untitled.tld</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
+									</div>
+								</div>
 							</div>
-						</div>
+						</section>
+									<!-- <ul class="actions">
+										<li><a href="generic.html" class="button">Learn more</a></li>
+									</ul> -->
+					</section>
+			
+				<!-- Three -->
+					<section id="three" class="wrapper style2 spotlights">
+						<section>
+							<div class="content">
+								<div class="inner">
+									<h2>3. Introducing Pioneer</h2>
+									<h3>3.1 What Pioneer Is</h3>
+									<p>Pioneer is an open-source, self-hosted feature management service that aids in the transition from a monolithic to microservices architecture. Feature flags that can be used to roll out new services to a chosen percentage of users, and can easily be toggled on/off without consequence. These feature flags and updates made to them are propagated to the client application in real-time, in an asynchronous and fault-tolerant manner.</p>
+								</div>
+								<div class="inner">
+									<h3>3.2 Revisiting the Problem</h3>
+									<p>Pioneer is a lightweight, customizable software that will allow Harvest Delivery to test their new microservices in a production environment under increasing amounts of load, without having to make any additional changes to their infrastructure such as cloning the development environment.  Using Pioneer to aid in transition from a monolith to microservices will reduce risk by allowing for immediate rollback without requiring a re-deployment or any additional downtime for the application. This will allow the small engineering team at Harvest Delivery to experiment in an agile manner.</p>
+									<p>Pioneer is specifically built to support the server-side evaluation of boolean flags, which is an excellent fit for the use case in which requests should be routed either to a new external microservice or an existing feature internal to the monolith.</p>
+								</div>
+								<div class="inner">
+									<h3>3.3 Using Pioneer</h3>
+									<p>Using Pioneer is a safe, reliable, and affordable solution for introducing a feature flagging service into your codebase. Starting the shift from a traditional monolithic architecture to a more dynamic microservices architecture is made painless and low-risk by the feature set that Pioneer provides. Let’s run through how we can use Pioneer to get started with this transition.</p>
+									<p>The first step in using Pioneer is installing and configuring all of the components that make up Pioneer. Compass is the primary application and offers a user interface built on React, as well as an API and PostgresQL database on the backend. Compass communicates directly with a NATS JetStream server, which in turn relays messages to the Scout daemon.</p>
+									<img class="image fit" src="./images/Pioneer-Architecture-Trans.png" alt="architecture diagram that looks really great">
+									<p>Don’t worry though, setup is a snap; we provide you with a `docker-compose.yml` file that will handle automatically installing and configuring the main services of Pioneer. Every component is run in a Docker container, so all you need to do is decide where you want the service hosted and run `docker-compose up`!</p>
+									<p>Once the system is up and running, integrating feature flags into your code is just as simple. The feature flag data lives in the Compass application.  All you need to do to create one is go to the Compass application’s user interface, or send the appropriate request to the Compass API. Flags can also be read, updated or deleted using either method. Updates can include toggling the flag on or off, changing the current rollout percentage, or updating a flag’s name and description.</p>
+									<p>With a feature flag created and stored securely in the Compass application’s database, you can then find the SDK that you need and integrate it with your own application’s codebase. This is really as simple as installing and importing a package and including the SDK key provided via the Compass user interface, under ‘Account’. Once that’s done, on application startup, the SDK will connect to the Scout daemon as an SSE client, allowing it to receive your feature flag ruleset, and any subsequent changes to it, in real time! (We have SDKs available in Nodejs, Go, and Ruby.)</p>
+									<p>After integrating the SDK into your code, any time you add a new flag, toggle it on or off, edit its contents, or delete it, those changes are propagated down to every SDK in real time.</p>
+									<p>That’s really all there is to it! In minutes, you can have an accessible, real-time feature flag service integrated with your codebase.</p>
+									<p><code>If your team does have specific needs that might fall outside the default configurations that we provide, the project is completely open-source, so your team can customize any part of Pioneer to make it a perfect fit for your team!</code></p>
+								</div>
+								<div class="inner">
+									<h3>3.4 Where Pioneer Fits</h3>
+									<img class="image fit" src="./images/comp-chart-rough.png" alt="">
+									<ul class="alt">
+										<li><b>Flexibility</b> means how open the solution is to customization. Open Source solutions are more flexible because they allow you to change any aspect of the given product to suit your specific needs. Closed Source products can’t provide this flexibility so they make up for it by trying to include rigid  solutions for every possible scenario. But this can lead to bloated products that have more of what you don’t need.</li>
+										<li><b>Accessibility</b> means how easy it is to pick the product up and start using it. Highly accessible products don’t have a lot of hoops to jump through to get the core product working. Less accessible products will require user account setups, subscriptions, and dense documentation to parse through to figure out how to configure everything.</li>
+										<li><b>Affordability</b> means the impact that a given solution will have on an organization’s budget. Low cost options generally don’t need subscriptions or service fees, but may lack features. Higher cost options mean paying for the services, but may also come with more features or support.</li>
+										<li><b>Simplicity</b> means how many features and services a given solution will offer. More simple solutions will not have as robust of a feature set, but a core set of features tailored to a specific purpose.</li>
+									</ul>
+								</div>
+							</div>
+						</section>
+	
+				<!-- Four -->
+					<section id="four" class="wrapper style1 spotlights">
+						<section>
+							<div class="content">
+								<div class="inner">
+									<h2>4. Engineering Decisions and Tradeoffs</h2>
+									<p>The Pioneer team encountered many forks in the road while building Pioneer, requiring us to weigh the tradeoffs of each choice in relation to our particular use case.</p>
+								</div>
+								<div class="inner">
+									<h3>4.1 Hosted vs. Self-Hosted</h3>
+									<p>One of the first decisions we discussed was whether to provide pioneer as a hosted or self-hosted application.  ultimately, we value allowing pioneer’s users to fully customize the software as needed to their own particular needs.  distributing pioneer as an open-source, self-hosted product allows users to tweak pioneer to fit their needs perfectly.</p>
+									<p>Additionally, because pioneer’s users will be hosting their own instance of pioneer, they do not have to be concerned with the security of a multi-tenancy architecture hosted by an external organization.  pioneer’s users maintain full control of their own data.</p>
+								</div>
+								<div class="inner">
+									<h3>4.2 How to Provide Flag Updates</h3>
+									<p>We spent a great deal of effort determining the best way to provide feature flag updates to the Pioneer SDK installed in the user’s application.  Some options we considered included: API polling, webhooks, websockets, and streaming.</p>
+									<p>While API polling seemed to be the simplest approach, it would require waiting for an SDK client to poll the Compass API for an update. This would eliminate the ability to provide feature flag updates in real-time, and may also result in unnecessary network traffic.</p>
+									<p>Webhooks was another alternative the Pioneer team considered. Webhooks generally provide faster updates than polling while being more efficient because of their event driven nature. However, it would require an additional HTTP endpoint to be exposed on the client application. Pioneer strives not to interfere with the client application.</p>
+									<p>Websockets are a good fit for bi-directional communication. Although the SDK client initially sends a ruleset request to Scout to initialize a connection, all subsequent messages are sent from Scout to the SDK. Therefore, for the most part, Scout only requires unidirectional communication to the SDK client. We don’t need the SDK client to communicate in a back-and-forth fashion regarding feature flag data. Instead, we simply want to push these feature flag updates down to the SDK clients.</p>
+									<p>Ultimately we chose to go with streaming, in order to provide real-time updates from our server to the user application, rather than waiting for a client to poll the Compass API for an update. Continue below to read about how we chose the tools with which to stream updates.</p>
+								</div>
+								<div class="inner">
+									<h3>4.3 Streaming Feature Flag Updates with JetStream</h3>
+									<p>We chose to stream feature flag data from Compass to the Scout daemon. Our streaming tool of choice, NATS JetStream, allows for decoupled messaging. Naively, we could have required the Scout daemon to communicate directly with the Compass API. However, Compass would then have the additional responsibility of tracking all listening Scout instances and ensuring message delivery. Using a streaming tool to handle message delivery allows for a better separation of concerns, and allows Compass to worry simply about publishing the correct message.  We chose not to pursue Kafka because its complexity and larger infrastructure were unnecessary for our use case. NATS has a smaller infrastructure and provides all of the features needed for Pioneer’s use case.</p>
+									<p>NATS streaming allows for many-to-one communication. This means that as an organization scales, for example, they could choose to also horizontally scale the number of Scout daemons sending updates to SDK clients.  Any Scout daemons subscribed to the NATS stream would receive feature flag updates as usual. Alternatively, a logging service could also subscribe to the NATS stream and preserve messages for later analysis.</p>
+									<p>Additionally, we wanted to use a streaming tool that allowed for guaranteed delivery of messages so that missed updates would not be a concern. This is why we specifically chose to use NATS JetStream over its predecessor, Core NATS. JetStream allows for guaranteed message delivery. This alleviates concerns of missed messages resulting in incorrect feature flag data.  NATS JetStream will send the most up-to-date ruleset to all subscribers. In our case, Scout is the subscriber. The message will wait until the subscriber receives and acknowledges it.  This means that if the Scout daemon goes offline, it will receive the most up-to-date feature flag data as soon as it comes back online.  This guaranteed message delivery means that we do not have to worry about missed messages due to an unreliable network. In short, JetStream will store the messages in memory. For every message that arrives, it will check the message sequence number to ensure that the send is caught up on messages. If not, JetStream will resend the data to the inbox of the sending node.</p>
+								</div>
+								<div class="inner">
+									<h3>4.4 Server Sent Events and SDK Keys</h3>
+									<p>Server-sent events provide a unidirectional mode of communication between the Scout daemon and SDK clients.  Again, although API polling was another option by which SDK clients could have requested feature flag updates from Scout, our preference for real-time updates eliminated API polling as a possible solution.</p>
+									<p>We chose to send a server-sent event from Scout to all connected SSE clients, which are Pioneer’s SDKs that are downloaded on the server-side of the user’s application. Upon receiving a new server-sent event, the SDK will parse the newly provided data and use the updated ruleset to evaluate feature flags.</p>
+									<p>One additional concern the Pioneer team discussed was how to authorize SSE clients.  We decided that when a client attempted to connect to Scout and receive feature flag data, we should first determine whether the client should be able to access that data.  This is done by providing an SDK key for usage by SDKs downloaded into the organization’s codebase.  The SDKs then send the provided SDK key with each request to connect as an SSE client to Scout. If no valid key is provided, the request to connect will be rejected.</p>
+								</div>
+								<div class="inner">
+									<h3>4.5 Redis Cache</h3>
+									<p>Initially, we considered whether we would need to use a Redis cache to offload read requests of Compass’ PostgreSQL database triggered by Scout requesting an updated feature flag ruleset.  The proposed cache would request data from the Compass API in order to populate its initial cache, and listen for subsequent ruleset updates.</p>
+									<p>However, we determined after further analysis that adding a cache to our architecture was not appropriate for our use case and would unnecessarily increase the complexity of Pioneer’s architecture.  Because the use case for Pioneer is relevant to small or medium-sized organizations, the number of read operations on Compass’ PostgreSQL database is entirely manageable without a cache.</p>
+								</div>
+								<div class="inner">
+									<h3>4.6 Ruleset Transmission Formatting</h3>
+									<p>Another tough decision that the Pioneer team had to make surrounded the content of messages that were distributed throughout the system. Namely, if our use case demanded that information about specific feature flags was being passed down to the SDKs, should we opt to send only the information pertaining to the specific feature that was changed, or send the ruleset in its entirety, on every transmission?</p>
+									<p>In the end, we chose to implement Pioneer such that, regardless of operation, be it a request for a ruleset or a distribution of an update to the SDKs, the system would send the whole ruleset.</p>
+									<p>As we see it, this method of distribution offers a handful of advantages. The first of which is that by transmitting the full ruleset, we can ensure that every SDK will store the most up to date rule set available. Imagine if we only transferred update information about a single flag at a time. Suppose then, that an SDK misses an update to a given feature flag due to networking issues. The next update that comes through might be for the same flag, in which case there might be only small repercussions. However, suppose then that the next update that is received is for a different flag, and that the flag in question is not updated again for several hours. This would mean that that SDK could contain outdated feature flag data that could possibly persist for quite a while. By sending the full ruleset, any time there is a change of any kind, the SDK will receive a full, updated ruleset. In this way, we can significantly reduce the potential for SDKs serving outdated feature flag data.</p>
+									<p>An additional benefit to sending the whole ruleset down is that it allows the code on either end to be simple and elegant. Because we work with the whole ruleset, we don’t have to worry about introducing additional surface area for bugs by including logic for breaking apart rulesets, updating specific elements, and handling every type of CRUD operation that might occur.</p>
+									<p>The obvious tradeoff that came to mind was the increased size of messages that would result from sending whole rulesets, and the impact on network bandwidth that this might cause. While it is true that the size of messages would increase with whole rulesets, we tried to frame this in the context of our use case to put the potential impact in a realistic spotlight. As Pioneer is designed to be used with small teams for the purposes of migrating services from a monolith, we reasoned that the standard use case would not likely exceed 20-30 distinct flags at a time. But, just to be safe we tested with a ruleset composed of 100 distinct flags. Even at this seemingly overinflated ruleset size, the total size of transmission (from Scout to SDKs, including headers) was almost exactly 20KB. WIth an expected rate of 10 requests/second, we felt the impact of 2MB/second should fall well within the tolerances of any modern network</p>
+									<p>So, with that in mind, we concluded that the tradeoff of increased transmission size for sending full rulesets was acceptable when weighed against the benefits added to the system by their inclusion.</p>
+								</div>
+								<div class="inner">
+									<h3>4.7 Flag Types Provided</h3>
+									<p>Our team considered the value of adding additional types of flags, similar to other existing feature flag services. Some of the many types of flags offered by other feature flag services include boolean, number, string, and JSON.</p>
+									<p>Ultimately, boolean flags are by far the most relevant flag type for Pioneer’s use case of strangling a monolith.  These flags are evaluated on the server side of the application, and are only concerned with whether a service is toggled on or off.</p>
+									<p>Adding additional types of flags may offer more flexibility for users of Pioneer, but it would result in a higher degree of complexity for Pioneer’s design as well as the user’s interactions with Compass.  Ultimately, we decided that adding additional flag types did not line up with the priorities of the Pioneer team at this time.</p>
+								</div>
+								<div class="inner">
+									<h3>4.8 Load Testing</h3>
+									<p>One area with which we wanted to take extra consideration was understanding and testing the limitations of how many SDKs can simultaneously connect to Scout and be served rulesets efficiently. To do this we wanted to define our expected use case, so that we might better set explicit performance metrics.</p>
+									<p>Our logic was as follows: Pioneer supports feature flag services for one back-end application at a time, which means the upper bounds of simultaneous SDK connections to the Scout daemon will depend on the extent to which that application has been horizontally scaled (ie: how many instances of that application are running at the same time).</p>
+									<p>Our expectation is that the small to medium sized dev team that is working with Pioneer will have an application that typically has no more than 100 concurrent instances of that application running at one time. We estimate that Scout would conservatively have around 10 new SDK connections being made every second requesting new rulesets.</p>
+									<p>WIth this use case in mind we reasoned that a rate of 10 new connections to Scout every second would cover most usage scenarios that could reasonably be expected. But also bearing in mind that unpredictable peak usage periods might occur, we also reasoned that 100 requests per second could be a realistic possibility during a peak usage period.</p>
+									<p>Again, in our tests with Scout, we wanted to simulate the process of an SDK client establishing an SSE connection with Scout and receiving the full ruleset data payload. The tested ruleset included 100 different flags, with a total object size of 18.7KB after extraction from Postgres and serialization into JSON. With this ruleset size in mind, including HTTP headers, the response from scout to SDK is almost 20KB exactly.</p>
+									<p>Because we wanted to simulate the process of connecting and fetching an initial ruleset only, we made a small modification to the Scout daemon that did not leave SSE connections open, but rather, closed them after the flag data had been retrieved and sent to the SDK. If each connection from every SDK staying open indefinitely the performance tolerances of the Scout daemon would most certainly perform differently, however, we felt that because SDK connections are likely to be closed and added with regularity as the client application spins up new instances and terminates others, it is reasonable to test scout without leaving every connection open in perpetuity.</p>
+									<p>Our testing procedure utilized Artillery with a configuration that ran several different stages for extended periods of time, with levels of traffic increasing tenfold from 1 request per second all the way up to 1000 requests per second before ramping back down.</p>
+									<p>The results of these proved a few things. Firstly, the Scout daemon can easily handle the expected case of 10 requests per second. Second, peak usage load of 100 requests per second showed some small increases to latency, but the system still served the data payloads without any drops. Lastly, while performance degraded under 1000 requests per second, the tests show that Scout ( combined with JetStream & Compass ) are more than capable of handling the anticipated amount of load from one application, horizontally scaled with around 10 new instances per second.</p>
+								</div>
+								<div class="inner">
+									<h3>4.9 NoSQL or SQL</h3>
+									<p>Compass uses Postgresql as its associated database. We initially chose MongoDb because of its high scalability features, ease of horizontal scalability, and very fast reads and writes. Since we were not using a cache, this would reduce the chance of the Compass database becoming a system wide bottleneck. We used NoSQL to facilitate a rapid development process where we would not have to get bogged down with ERDs and the possibility of having to update schema/migrate data if there was a change to our data's proposed structure as we moved through stages of development. Furthermore, since the bulk of our data would be stored in rulesets of nested javascript objects, there would be lower impedance between the in memory representation of the ruleset and the database document model representation.</p>
+									<p>However, we realized that for our use case, there would not be as many reads as needed for a MongoDb level speed of reading. In addition, there would be far fewer writes, as flag creation would only happen a few times, and toggling would happen at most only a few times a day. The schema complexity would not be an issue, since there were only a few entities that needed to be created.</p>
+									<p>Maturity and stability. Relational databases still have the edge here in maturity and stability. People are familiar with how they work, what they can do, and have confidence in their reliability. There are also more programmers and toolsets available for relational databases. So when in doubt, this is the road that will be traveled. For our use case, companies like Harvest involved in the shopping business are more likely to rely on SQL for their data integrity properties. Since part of our advantage was being open sourced for the engineering team to tweak to their satisfaction, using a SQL database would be more natural and familiar for them.</p>
+									<p>In addition, we realized that our queries would be fairly simple enough so that the impedance between JSON and SQL would be minimal. Furthermore, since our database is part of the monolith, communicating on the same machine with the Compass app server, there was no need for the horizontal scaling capabilities or fault tolerant clustering properties of MongoDb, which would be used in a more distributed environment. We decided that in sum, using a SQL database would not be a source of system wide bottlenecks for use cases akin to Harvest company.</p>
+								</div>
+								<div class="inner">
+									<h3>4.9 NoSQL or SQL</h3>
+									<p>Compass uses Postgresql as its associated database. We initially chose MongoDb because of its high scalability features, ease of horizontal scalability, and very fast reads and writes. Since we were not using a cache, this would reduce the chance of the Compass database becoming a system wide bottleneck. We used NoSQL to facilitate a rapid development process where we would not have to get bogged down with ERDs and the possibility of having to update schema/migrate data if there was a change to our data's proposed structure as we moved through stages of development. Furthermore, since the bulk of our data would be stored in rulesets of nested javascript objects, there would be lower impedance between the in memory representation of the ruleset and the database document model representation.</p>
+									<p>However, we realized that for our use case, there would not be as many reads as needed for a MongoDb level speed of reading. In addition, there would be far fewer writes, as flag creation would only happen a few times, and toggling would happen at most only a few times a day. The schema complexity would not be an issue, since there were only a few entities that needed to be created.</p>
+									<p>Maturity and stability. Relational databases still have the edge here in maturity and stability. People are familiar with how they work, what they can do, and have confidence in their reliability. There are also more programmers and toolsets available for relational databases. So when in doubt, this is the road that will be traveled. For our use case, companies like Harvest involved in the shopping business are more likely to rely on SQL for their data integrity properties. Since part of our advantage was being open sourced for the engineering team to tweak to their satisfaction, using a SQL database would be more natural and familiar for them.</p>
+									<p>In addition, we realized that our queries would be fairly simple enough so that the impedance between JSON and SQL would be minimal. Furthermore, since our database is part of the monolith, communicating on the same machine with the Compass app server, there was no need for the horizontal scaling capabilities or fault tolerant clustering properties of MongoDb, which would be used in a more distributed environment. We decided that in sum, using a SQL database would not be a source of system wide bottlenecks for use cases akin to Harvest company.</p>
+								</div>
+								<div class="inner">
+									<h3>4.10 Scaling</h3>
+									<p>Pioneer is set up to deploy a single instance of the Scout daemon, but users can scale horizontally as needed by deploying an additional instance of Scout on a separate port.  All instances of Scout will be subscribed to the appropriate NATS JetStream stream in order to receive feature flag updates, and will send these updates to all connected SDK clients via server-sent events.</p>
+									<p>Additionally, if frequent read operations become too demanding on Compass’ PostgreSQL database, users may choose to expand the architecture of their self-hosted instance of Pioneer by adding a cache or a read-replica.</p>
+									<p>Because Pioneer is intended for use by small to medium organizations, we don’t anticipate that this issue will apply to the vast majority of users.</p>
+								</div>
+							</div>
+						</section>
+									<!-- <ul class="actions">
+										<li><a href="generic.html" class="button">Learn more</a></li>
+									</ul> -->
+					</section>				
+
+				<!-- Five -->
+					<section id="five" class="wrapper style2 spotlights">
+						<section>
+							<div class="content">
+								<div class="inner">
+									<h2>5. Future Work</h2>
+									<h3>5.1 Accommodate Multiple Applications</h3>
+									<p>Currently, an instance of Pioneer supports a single application. More specifically, Pioneer supports a single ruleset.  If an organization would like to use Pioneer with additional applications that require different rulesets, they will need to spin up an additional instance of Pioneer to communicate with that application. This is a natural consequence of Pioneer’s simplicity and ease-of-use. However, in the future we may consider adding support for multiple rulesets handled by a single instance of Pioneer.</p>
+								</div>
+								<div class="inner">
+									<h3>5.2 Additional Rollout Strategies</h3>
+									<p>Offering additional rollout strategies that allow the organization to target particular users would allow for more granular control over who the earliest users of a new service are.  Some special users that we may choose to accommodate in the future are internal users, a predetermined group of beta-testers, or particular segments of the market.</p>
+								</div>
+								<div class="inner">
+									<h3>5.3 Flag Expiration</h3>
+									<p>Because Pioneer is meant to be used to roll out new services, the feature flag for a service likely shouldn’t live in the codebase indefinitely. Flag expiration would allow engineers to set an expiration date on a flag after which the flag will throw an exception or log a warning message if it is evaluated in the codebase. The motivation behind flag expiration is to avoid technical debt. When a feature flag is no longer necessary, it should be removed from the codebase.</p>
+								</div>
+								<div class="inner">
+									<h3>5.4 Multiple Environments for Single Applications</h3>
+									<p>Supporting multiple environments such as testing and staging in addition to production may be a feature that we explore in the future. Different environments of the same application would require the same ruleset, however engineers may wish for a flag’s toggle status to be different in the testing environment versus production, for example. Accommodating multiple environments would add an additional layer of complexity, but it would offer more granular control to users of Pioneer.</p>
+								</div>
+								<div class="inner">
+									<h3>5.5 Permission Management</h3>
+									<p>Supporting multiple environments such as testing and staging in addition to production may be a feature that we explore in the future. Different environments of the same application would require the same ruleset, however engineers may wish for a flag’s toggle status to be different in the testing environment versus production, for example. Accommodating multiple environments would add an additional layer of complexity, but it would offer more granular control to users of Pioneer.</p>
+								</div>
+							</div>
+						</section>
 					</section>
 
-			</div>
+		<!-- Six -->
+					<section id="six" class="wrapper style2 spotlights">
+						<section>
+							<div class="content">
+								<div class="inner">
+									<h2>6. References</h2>
+									<ol>
+										<li><a href="https://martinfowler.com/bliki/CanaryRelease.html">Martin Fowler - Canary Release</a></li>
+										<li><a href="https://www.split.io/glossary/canary-deployment/">Split.io - Canary Deployments</a></li>
+										<li>ETC</li>
+									</ol>
+							</div>
+						</section>
+					</section>
+
+		<!-- Seven -->
+					<section id="seven" class="wrapper style1 spotlights">
+						<section>
+							<div class="content">
+								<div class="inner">
+									<h2>7. Presentation</h2>
+									<div style="width:100%"><div style="height:0;padding-bottom:56.25%;position:relative;width:100%"><iframe allowfullscreen="" frameBorder="0" height="100%" src="https://giphy.com/embed/xU7TNYYXP2UWnYUqPC/video" style="left:0;position:absolute;top:0" width="100%"></iframe></div></div>
+
+							</div>
+						</section>
+					</section>
+	
+		<!-- Eight -->
+			<section id="eight" class="wrapper style2 spotlights">
+				<section>
+					<div class="content">
+						<div class="inner">
+							<h2>8. Meet the Team</h2>
+							<p>Pioneer was built by a small team of dedicated individuals.</p>
+							<p>Click below to find our more about them.</p>
+							<ul class="actions">
+								<li><a href="team.html" class="button">Meet the Team!</a></li>
+							</ul>
+
+						</div>
+					</div>
+				</section>
+			</section>		
+		</div>
 
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
 				</div>
 			</footer>
 
