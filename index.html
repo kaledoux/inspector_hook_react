@@ -8,7 +8,6 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
 		<!-- Sidebar -->
 			<section id="sidebar">
 				<div class="inner">
@@ -30,7 +29,9 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-
+				<a id="octocat" href="https://github.com/pioneer-io">
+					<img src="./images/GitHub-Mark/PNG/GitHub-Mark-64px.png" alt="">
+				</a>
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
@@ -142,7 +143,7 @@
 									<h3>3.3 Using Pioneer</h3>
 									<p>Using Pioneer is a safe, reliable, and affordable solution for introducing a feature flagging service into your codebase. Starting the shift from a traditional monolithic architecture to a more dynamic microservices architecture is made painless and low-risk by the feature set that Pioneer provides. Let’s run through how we can use Pioneer to get started with this transition.</p>
 									<p>The first step in using Pioneer is installing and configuring all of the components that make up Pioneer. Compass is the primary application and offers a user interface built on React, as well as an API and PostgresQL database on the backend. Compass communicates directly with a NATS JetStream server, which in turn relays messages to the Scout daemon.</p>
-									<img class="image fit" src="./images/Pioneer-Architecture-Trans.png" alt="architecture diagram that looks really great">
+									<img class="image fit" src="./images/visual_examples/Pioneer-Architecture-Trans.png" alt="architecture diagram that looks really great">
 									<p>Don’t worry though, setup is a snap; we provide you with a `docker-compose.yml` file that will handle automatically installing and configuring the main services of Pioneer. Every component is run in a Docker container, so all you need to do is decide where you want the service hosted and run `docker-compose up`!</p>
 									<p>Once the system is up and running, integrating feature flags into your code is just as simple. The feature flag data lives in the Compass application.  All you need to do to create one is go to the Compass application’s user interface, or send the appropriate request to the Compass API. Flags can also be read, updated or deleted using either method. Updates can include toggling the flag on or off, changing the current rollout percentage, or updating a flag’s name and description.</p>
 									<p>With a feature flag created and stored securely in the Compass application’s database, you can then find the SDK that you need and integrate it with your own application’s codebase. This is really as simple as installing and importing a package and including the SDK key provided via the Compass user interface, under ‘Account’. Once that’s done, on application startup, the SDK will connect to the Scout daemon as an SSE client, allowing it to receive your feature flag ruleset, and any subsequent changes to it, in real time! (We have SDKs available in Nodejs, Go, and Ruby.)</p>
@@ -152,7 +153,7 @@
 								</div>
 								<div class="inner">
 									<h3>3.4 Where Pioneer Fits</h3>
-									<img class="image fit" src="./images/comp-chart-rough.png" alt="">
+									<img class="image fit" src="./images/visual_examples/comp-chart-rough.png" alt="">
 									<ul class="alt">
 										<li><b>Flexibility</b> means how open the solution is to customization. Open Source solutions are more flexible because they allow you to change any aspect of the given product to suit your specific needs. Closed Source products can’t provide this flexibility so they make up for it by trying to include rigid  solutions for every possible scenario. But this can lead to bloated products that have more of what you don’t need.</li>
 										<li><b>Accessibility</b> means how easy it is to pick the product up and start using it. Highly accessible products don’t have a lot of hoops to jump through to get the core product working. Less accessible products will require user account setups, subscriptions, and dense documentation to parse through to figure out how to configure everything.</li>
@@ -323,7 +324,7 @@
 						<div class="box alt">
 							<div class="row gtr-uniform">
 								<div class="col-3 center">
-									<img class="image fit rounded" src="./images/blue.jpeg" alt="" />
+									<img class="image fit rounded" src="./images/team_photos/blue.jpeg" alt="" />
 									<p>Jimmy Zheng</p>
 									<div class="row center">
 										<a href="#">
@@ -338,7 +339,7 @@
 									</div>
 								</div>
 								<div class="col-3 center">
-									<img class="image fit rounded" src="./images/yellow.jpeg" alt="" />
+									<img class="image fit rounded" src="./images/team_photos/yellow.jpeg" alt="" />
 									<p>Laura Davies</p>
 									<div class="row center">
 										<a href="#">
@@ -353,7 +354,7 @@
 									</div>
 								</div>
 								<div class="col-3 center">
-									<img class="image fit rounded" src="./images/red.jpeg" alt="" />
+									<img class="image fit rounded" src="./images/team_photos/red.jpeg" alt="" />
 									<p>Kyle Ledoux</p>
 									<div class="row center">
 										<a href="#">
@@ -368,7 +369,7 @@
 									</div>
 								</div>
 								<div class="col-3 center">
-									<img class="image fit rounded" src="./images/silver.jpeg" alt="" />
+									<img class="image fit rounded" src="./images/team_photos/silver.jpeg" alt="" />
 									<p>Elizabeth Tackett</p>
 									<div class="row center">
 										<a href="#">

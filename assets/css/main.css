@@ -3953,3 +3953,19 @@ body.is-preload #sidebar nav ul li {
 	text-align: center;
 	justify-content: center;
 }
+
+#octocat {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 1;
+}
+
+@media screen and (max-width: 736px) {
+	#octocat {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		z-index: 1;
+	}
+}
